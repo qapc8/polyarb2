@@ -1,0 +1,28 @@
+polymarket:
+  clob_rest_base: "https://clob.polymarket.example"
+  clob_ws_url: "wss://ws-subscriptions-clob.polymarket.example/ws/"
+  markets_api_base: "https://markets.polymarket.example"
+  api_key: "${PM_API_KEY}"
+  read_timeout_s: 10
+  write_timeout_s: 5
+  ws_heartbeat_s: 10
+strategy:
+  epsilon_bps: 20
+  slippage_bps: 15
+  min_notional_usd: 200
+  resolution_guard_minutes: 60
+  reentry_threshold_bps: 10
+  enable_parity: true
+  enable_basket: true
+  enable_resolution: true
+risk:
+  max_notional_per_market: 5000
+  max_notional_per_event: 15000
+  max_concurrent_signals: 5
+  kill_on_ws_stale_ms: 8000
+persistence:
+  dsn: "sqlite:///pm_arb.db"
+metrics:
+  prometheus_port: 9308
+logging:
+  level: "INFO"
